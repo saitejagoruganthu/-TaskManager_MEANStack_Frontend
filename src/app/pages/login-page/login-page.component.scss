@@ -1,0 +1,65 @@
+@import '../../../main-styles.scss';
+
+.centered
+{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    height: 100%;
+
+    .boxContent
+    {
+        width: 330px;
+        height: 250px;
+        display: flex;
+
+        .login-box
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 250px;
+            width: 100%;
+            max-width: 330px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 35px;
+
+            .title
+            {
+                font-weight: bold;
+            }
+
+            .mat-mdc-form-field
+            {
+                width: 100%;
+            }
+
+            .btnContainer
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+
+                .loginBtn
+                {
+                    background: $orange;
+                }
+            }
+
+            .noAccountText
+            {
+                margin-top: 20px;
+
+                .signUpText
+                {
+                    color: #cb6600;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

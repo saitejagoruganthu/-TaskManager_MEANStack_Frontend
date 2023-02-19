@@ -1,0 +1,29 @@
+<mat-card class="centered">
+    <mat-card-content class="boxContent">
+        <div class="login-box">
+            <h1 class="title">Sign In</h1>
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your Email ID</mat-label>
+                    <input matInput #emailInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter your password</mat-label>
+                  <input #pwInput matInput [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+            </div>
+            <div class="btnContainer">
+                <button class="loginBtn" mat-raised-button (click)="onLoginBtnClick(emailInput.value, pwInput.value)">Login</button>
+            </div>
+
+            <p class="noAccountText">
+                Not got an account?
+                <a routerLink="/signup" class="signUpText">Sign up</a>
+                now!
+            </p>
+        </div>
+    </mat-card-content>
+</mat-card>

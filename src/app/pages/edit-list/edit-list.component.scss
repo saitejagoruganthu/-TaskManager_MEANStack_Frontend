@@ -1,0 +1,49 @@
+@import '../../../main-styles.scss';
+
+.centered
+{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    height: 100%;
+
+    .boxContent
+    {
+        width: 400px;
+        height: 200px;
+        display: flex;
+
+        .model-box
+        {
+            min-height: 200px;
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 35px;
+        }
+
+        .btnContainer
+        {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .updateListBtn
+        {
+            background: $orange;
+            margin: 0 20px;
+        }
+
+        .inputBox
+        {
+            width: 100%;
+        }
+
+        .inputWrapper
+        {
+            margin-top: 30px;
+        }
+    }
+}

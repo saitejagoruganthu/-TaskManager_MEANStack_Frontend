@@ -1,0 +1,82 @@
+<mat-card class="centered">
+    <mat-card-content class="boxContent">
+        <div class="task-manager-wrapper">
+            <div class="listsContainer">
+                <div class="top-bar-list">
+                    <h1 class="title">Lists</h1>
+
+                    <button class="logoutBtn" mat-icon-button aria-label="Logout button" matTooltip="Click to Logout" (click)="logout()">
+                        <mat-icon>logout</mat-icon>
+                    </button>
+                </div>
+                <div 
+                    class="list-menu"
+                    cdkDropList
+                    [cdkDropListData]="lists"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    <ng-container *ngFor="let list of lists">
+                        <a class="list-menu-item" [routerLink]="['/lists', list._id]" routerLinkActive="is-active" cdkDrag>
+                            <p>{{list.title}}</p>
+                        </a>
+                    </ng-container>
+                </div>
+                <button class="addListBtn" mat-raised-button routerLink="/new-list">+ Add List</button>
+            </div>
+            <div class="tasks-list-container">
+                <div *ngIf="tasks">
+                    <div class="top-bar">
+                        <h1 class="title">Tasks</h1>
+
+                        <button class="modifyListBtn" mat-icon-button matTooltip="Modify this List" [matMenuTriggerFor]="menu" aria-label="List operations icon-button with a menu">
+                            <mat-icon>settings</mat-icon>
+                          </button>
+                          <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item [routerLink]="['/edit-list', selectedListId]">
+                              <mat-icon class="menuIcon">edit</mat-icon>
+                              <span class="menuText">Edit List</span>
+                            </button>
+                            <button mat-menu-item (click)="onDeleteListClick()">
+                              <mat-icon class="menuIcon">delete</mat-icon>
+                              <span class="menuText">Delete List</span>
+                            </button>
+                          </mat-menu>
+                    </div>
+    
+                    <!-- Task Elements -->
+                    <div
+                        cdkDropList
+                        [cdkDropListData]="tasks"
+                        class="dragDropTasks"
+                        (cdkDropListDropped)="drop($event)"
+                    >
+                        <div class="task-elements" *ngFor="let task of tasks" [ngClass]="{'complete':task.completed}" cdkDrag>
+                            <div class="task-text" (click)="$event.stopPropagation();onTaskClick(task)">
+                                <p>{{task.title}}</p>
+                            </div>
+                            <div class="task-buttons">
+                                <button mat-raised-button class="taskMatButton editTaskBtn" matTooltip="Edit this task" [routerLink]="['/lists', selectedListId, 'edit-task', task._id]">
+                                    <mat-icon class="taskMatIcon" aria-hidden="false" aria-label="Edit Task Icon" fontIcon="edit"></mat-icon>
+                                </button>
+                                <button mat-raised-button class="taskMatButton deleteTaskBtn" matTooltip="Delete this task" (click)="onTaskDeleteClick(task._id);$event.stopPropagation()">
+                                    <mat-icon class="taskMatIcon" aria-hidden="false" aria-label="Delete Task Icon" fontIcon="delete"></mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="empty-state-task-text" *ngIf="tasks.length===0">No tasks here. Click the add task button to create tasks.</h3>
+
+                    <div class="circleAddButtonContainer">
+                        <button matTooltip="Click to Add a Task" class="circleAddBtn" mat-fab color="primary" routerLink="./new-task" aria-label="Icon button with an add icon">
+                        <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="!tasks">
+                    <h3 class="empty-state-text">Please select a list from the sidebar</h3>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

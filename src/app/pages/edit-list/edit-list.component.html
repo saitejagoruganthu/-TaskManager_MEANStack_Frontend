@@ -1,0 +1,21 @@
+<mat-card class="centered">
+    <mat-card-content class="boxContent">
+        <div class="model-box">
+            <h1 class="title">Edit a List</h1>
+
+            <p class="inputWrapper">
+                <mat-form-field class="inputBox" appearance="fill">
+                  <mat-label>Update the list name</mat-label>
+                  <input matInput #listTitleInput [value]="currentListTitle">
+                  <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </p>
+
+            <div class="btnContainer">
+                <button class="updateListBtn" mat-raised-button (click)="updateList(listTitleInput.value)">Save</button>
+                <button class="cancelBtn" mat-raised-button routerLink="/">Cancel</button>
+            </div>
+            
+        </div>
+    </mat-card-content>
+</mat-card>

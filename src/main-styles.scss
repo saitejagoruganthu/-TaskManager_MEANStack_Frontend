@@ -1,0 +1,124 @@
+$orange: #ff9933;
+$pear: #ffa64d;
+$lightOrange: #ffe6cc;
+
+$light: #f8f8f8;
+
+html
+{
+    background-image: linear-gradient(to right top, #ffa64d, #ff9933);
+}
+
+html, body 
+{ 
+    height: 100%; 
+}
+
+body 
+{ 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled)
+{
+    background: $lightOrange !important;
+}
+
+.mdc-text-field--filled .mdc-line-ripple::after
+{
+    border-bottom-color: #000 !important;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label
+{
+    color: #000 !important;
+}
+
+.cdk-overlay-container
+{
+    .menuIcon
+    {
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menuText
+    {
+        font-size: 15px;
+    }
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .dragDropTasks.cdk-drop-list-dragging .task-elements:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .task-elements.cdk-drag-preview
+  {
+    display: flex;
+    background: #eee;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    .task-text
+    {
+        display: flex;
+        flex-grow: 1;
+    }
+    .task-buttons
+    {
+        //display: none;
+        .taskMatButton
+        {
+            padding: 0;
+            min-width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: $orange;
+
+            &.editTaskBtn
+            {
+                margin-right: 8px;
+            }
+        }
+
+        .taskMatIcon
+        {
+            margin-right: 0;
+            margin-left: 1px;
+        }
+      }
+  }
+
+  .list-menu-item.cdk-drag-preview
+  {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    //width: 100%;
+    color: #5f5f5f;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    //background: $lightOrange;
+    font-weight: 500;
+  }

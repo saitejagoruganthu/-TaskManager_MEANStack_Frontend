@@ -1,0 +1,247 @@
+@import '../../../main-styles.scss';
+
+.centered
+{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    height: 100%;
+
+    .boxContent
+    {
+        width: 1000px;
+        height: 550px;
+
+        .task-manager-wrapper
+        {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            max-width: 1000px;
+            max-height: 680px;
+            
+            .title
+            {
+                color: $orange;
+                font-size: 24px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .listsContainer
+            {
+                display: flex;
+                flex-direction: column;
+                width: 220px;
+                background: #fff;
+                padding: 42px;
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+
+                .list-menu
+                {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 15px;
+                    flex-grow: 1;
+
+                    .list-menu-item
+                    {
+                        display: flex;
+                        align-items: center;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        //width: 100%;
+                        color: #5f5f5f;
+                        margin-bottom: 5px;
+                        letter-spacing: 0.5px;
+                        text-decoration: none;
+                        cursor: move;
+
+                        p
+                        {
+                            margin: 0;
+                        }
+
+                        &:hover
+                        {
+                            background-color: $lightOrange;
+                        }
+
+                        &.is-active
+                        {
+                            background-color: #ffbf80;
+                            color: #000;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .addListBtn
+                {
+                    margin: 0 25%;
+                    background: $orange;
+                    //color: #fff;
+                }
+
+                .top-bar-list
+                {
+                    display: flex;
+                    margin-bottom: 1em;
+
+                    .title
+                    {
+                        display: flex;
+                        flex-grow: 1;
+                        margin: 0;
+                    }
+
+                    .logoutBtn
+                    {
+                        padding: 0;
+                        width: 30px;
+                        height: 30px;
+                        justify-content: center;
+                        display: flex;
+                        align-items: center;
+                        padding-left: 5px;
+                    }
+                }
+            }
+
+            .tasks-list-container
+            {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                background: $light;
+                padding: 42px;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                position: relative;
+
+                .empty-state-text
+                {
+                    font-size: 18px;
+                    color: #777;
+                    text-align: center;
+                }
+
+                .empty-state-task-text
+                {
+                    font-size: 16px;
+                    color: #777;
+                    text-align: center;
+                }
+
+                .top-bar
+                {
+                    display: flex;
+
+                    .title
+                    {
+                        flex-grow: 1;
+                    }
+
+                    .modifyListBtn
+                    {
+                        padding: 0;
+                        width: 25px;
+                        height: 25px;
+                        margin-top: 2px;
+                    }
+                }
+
+                .task-elements
+                {
+                    background: #fff;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    display: flex;
+                    cursor: move;
+
+                    p
+                    {
+                        margin: 0;
+                    }
+
+                    &:not(.complete)
+                    {
+                        cursor: move;
+                        transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+                        &:hover
+                        {
+                            box-shadow: 0 0 0 5px #eee;
+                        }
+
+                        &:active
+                        {
+                            transform: scale(0.85);
+                        }
+                    }
+                    
+
+                    &.complete .task-text
+                    {
+                        text-decoration: line-through;
+                        opacity: 0.5;
+                        //border: 1px solid #ccc;
+                    }
+
+                    .task-text
+                    {
+                        display: flex;
+                        flex-grow: 1;
+                    }
+
+                    .task-buttons
+                    {
+                        //display: none;
+                        .taskMatButton
+                        {
+                            padding: 0;
+                            min-width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            background: $orange;
+
+                            &.editTaskBtn
+                            {
+                                margin-right: 8px;
+                            }
+                        }
+
+                        .taskMatIcon
+                        {
+                            margin-right: 0;
+                            margin-left: 1px;
+                        }
+                    }
+                }
+
+                .circleAddButtonContainer
+                {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    padding: 1em;
+
+                    .circleAddBtn
+                    {
+                        background: $orange;
+                    }
+
+                    .mat-icon
+                    {
+                        color: #000;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
