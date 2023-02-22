@@ -13,7 +13,7 @@
 
             <div class="btnContainer">
                 <button class="updateTaskBtn" mat-raised-button (click)="updateTask(taskTitleInput.value)">Save</button>
-                <button class="cancelBtn" mat-raised-button routerLink="/">Cancel</button>
+                <button class="cancelBtn" mat-raised-button [routerLink]="['/lists',listId]">Cancel</button>
             </div>
             
         </div>

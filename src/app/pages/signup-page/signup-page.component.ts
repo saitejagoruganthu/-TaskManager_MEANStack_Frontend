@@ -23,7 +23,6 @@ export class SignupPageComponent {
   onSignupBtnClick(email:string, password:string)
   {
     this.authservice.signup(email,password).subscribe((res: HttpResponse<any>)=>{
-      //console.log(res);
       this.route.navigate(['/lists']);
 
       this.openSnackBar('Signed up Successfully');

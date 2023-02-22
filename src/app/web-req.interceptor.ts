@@ -29,7 +29,7 @@ export class WebReqInterceptor implements HttpInterceptor {
     //call next() and handle the response
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse)=>{
-        console.log(error);
+        //console.log(error);
 
       if(error.status === 401)
         {
@@ -43,7 +43,7 @@ export class WebReqInterceptor implements HttpInterceptor {
               return next.handle(req);
             }),
             catchError((err:any)=>{
-              console.log(err);
+              //console.log(err);
               this.authservice.logout();
               return EMPTY;
             })

@@ -9,7 +9,7 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Enter your password</mat-label>
-                  <input #pwInput matInput [type]="hide ? 'password' : 'text'">
+                  <input #pwInput matInput [type]="hide ? 'password' : 'text'" (keyup.enter)="onSignupBtnClick(emailInput.value, pwInput.value)">
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>

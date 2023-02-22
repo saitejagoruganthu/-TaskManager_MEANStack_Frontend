@@ -25,14 +25,11 @@ export class NewListComponent {
   createList(title:string)
   {
     this.taskservice.createNewList(title).subscribe((list:List | any)=>{
-      //console.log(list);
-
       //Now we navigate to /lists/response._id
       this.router.navigate(['/lists', list._id]);
 
       this.openSnackBar('List created successfully');
   },(err)=>{
-    //console.log(err.error.message);
     this.openSnackBar(err.error.message);
   })
   }

@@ -37,7 +37,6 @@ export class AuthService {
 
   signup(email: string, password:string)
   {
-    console.log(email);
     return this.webservice.signup(email,password).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>)=>{

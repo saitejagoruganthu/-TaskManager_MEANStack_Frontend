@@ -14,6 +14,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 import { NewListComponent } from './pages/new-list/new-list.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -45,7 +48,10 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
     MatMenuModule,
     MatTooltipModule,
     DragDropModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [
     {

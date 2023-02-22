@@ -31,7 +31,6 @@ export class NewTaskComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params:any)=>{
       this.listId = params['listId'];
-      //console.log(this.listId);
       
     })
   }
@@ -39,13 +38,11 @@ export class NewTaskComponent implements OnInit {
   createTask(title:string)
   {
     this.taskservice.createNewTask(title,this.listId).subscribe((newTask:Task | any)=>{
-      //console.log(newTask);
 
       this.router.navigate(['../'],{relativeTo: this.route});
 
       this.openSnackBar('Task created successfully');
   },(err)=>{
-    //console.log(err.error.message);
     this.openSnackBar(err.error.message);
   })
   }

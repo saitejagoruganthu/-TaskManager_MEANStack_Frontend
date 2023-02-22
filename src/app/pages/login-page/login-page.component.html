@@ -9,14 +9,14 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                   <mat-label>Enter your password</mat-label>
-                  <input #pwInput matInput [type]="hide ? 'password' : 'text'">
+                  <input #pwInput matInput [type]="hide ? 'password' : 'text'" (keyup.enter)="onLoginBtnClick(emailInput.value, pwInput.value)">
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
             </div>
             <div class="btnContainer">
-                <button class="loginBtn" mat-raised-button (click)="onLoginBtnClick(emailInput.value, pwInput.value)">Login</button>
+                <button #focusableSubmit class="loginBtn" mat-raised-button (click)="onLoginBtnClick(emailInput.value, pwInput.value)">Login</button>
             </div>
 
             <p class="noAccountText">

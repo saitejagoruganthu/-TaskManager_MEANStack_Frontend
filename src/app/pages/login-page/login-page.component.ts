@@ -23,8 +23,6 @@ export class LoginPageComponent{
   onLoginBtnClick(email:string, password:string)
   {
     this.authservice.login(email,password).subscribe((res: HttpResponse<any>)=>{
-      console.log(res);
-      
       if(res.status === 200)
       {
         //we have logged in successfully

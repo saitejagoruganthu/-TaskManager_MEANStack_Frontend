@@ -10,7 +10,7 @@
 
     .boxContent
     {
-        width: 1000px;
+        width: 950px;
         height: 550px;
 
         .task-manager-wrapper
@@ -45,6 +45,8 @@
                     flex-direction: column;
                     margin-top: 15px;
                     flex-grow: 1;
+                    height: 50vh;
+                    overflow-y: auto;
 
                     .list-menu-item
                     {
@@ -58,6 +60,7 @@
                         letter-spacing: 0.5px;
                         text-decoration: none;
                         cursor: move;
+                        margin-top: 10px;
 
                         p
                         {
@@ -81,6 +84,7 @@
                 .addListBtn
                 {
                     margin: 0 25%;
+                    margin-top: 15px;
                     background: $orange;
                     //color: #fff;
                 }
@@ -167,34 +171,40 @@
                         margin: 0;
                     }
 
-                    &:not(.complete)
-                    {
-                        cursor: move;
-                        transition: box-shadow 0.2s ease, transform 0.2s ease;
-
-                        &:hover
-                        {
-                            box-shadow: 0 0 0 5px #eee;
-                        }
-
-                        &:active
-                        {
-                            transform: scale(0.85);
-                        }
-                    }
                     
-
-                    &.complete .task-text
-                    {
-                        text-decoration: line-through;
-                        opacity: 0.5;
-                        //border: 1px solid #ccc;
-                    }
 
                     .task-text
                     {
                         display: flex;
                         flex-grow: 1;
+                        padding: 10px;
+
+                        &:not(.complete)
+                        {
+                            cursor: move;
+                            transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+                            &:hover
+                            {
+                                box-shadow: 0 0 0 5px #eee;
+                                border-radius: 5px;
+                                margin-right: 10px;
+                                padding: 10px;
+                            }
+
+                            &:active
+                            {
+                                transform: scale(0.85);
+                            }
+                        }
+                        
+
+                        &.complete
+                        {
+                            text-decoration: line-through;
+                            opacity: 0.5;
+                            //border: 1px solid #ccc;
+                        }
                     }
 
                     .task-buttons
@@ -245,3 +255,659 @@
     }
 }
 
+@media screen and (max-width: 520px){
+
+    .mobile-container
+    {
+        height: 100%;
+
+        .mobile-drawer
+        {
+            width: 65vw;
+
+            .listsContainer
+            {
+                display: flex;
+                flex-direction: column;
+                height: 95%;
+
+                .top-bar-list
+                {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1em;
+                    background: $pear;
+
+                    .title
+                    {
+                        padding: 0 1em;
+                        font-size: 20px;
+                        margin: 0;
+                    }
+
+                    .logout-icon
+                    {
+                        font-size: 22px;
+                    }
+                }
+
+                .list-menu
+                {
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
+                    margin: 1em;
+                    height: 70vh;
+                    overflow-y: auto;
+
+                    .list-menu-item
+                    {
+                        display: flex;
+                        align-items: center;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        //width: 100%;
+                        color: #5f5f5f;
+                        margin-bottom: 5px;
+                        letter-spacing: 0.5px;
+                        text-decoration: none;
+                        cursor: move;
+                        margin-top: 10px;
+
+                        p
+                        {
+                            margin: 0;
+                        }
+
+                        &:hover
+                        {
+                            background-color: $lightOrange;
+                        }
+
+                        &.is-active
+                        {
+                            background-color: #ffbf80;
+                            color: #000;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .addListBtn
+                {
+                    margin: 0 25%;
+                    background: $orange;
+                }
+            }
+        }
+
+        .mobile-drawer-content
+        {
+            .tasks-list-container
+            {
+                .mobile-toolbar
+                {
+                    background: $orange;
+
+                    &.task-present
+                    {
+                        justify-content: space-between;
+                    }
+                    
+                    &.task-not-present
+                    {
+                        justify-content: unset;
+                    }
+
+                    .mobile-app-name
+                    {
+                        margin: 0; 
+                        font-size: 16px;
+                    }
+                }
+
+                .dragDropTasks
+                {
+                    height: 65vh;
+                    overflow-y: auto;
+                }
+
+                .top-bar
+                {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 1em;
+
+                    .title
+                    {
+                        font-size: 20px;
+                    }
+                }
+
+                .empty-state-text
+                {
+                    font-size: 1em;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 1em;
+                }
+
+                .empty-state-task-text
+                {
+                    font-size: 15px;
+                    color: #777;
+                    margin: 2em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .task-elements
+                {
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    //margin-top: 10px;
+                    display: flex;
+                    cursor: move;
+                    height: 20vh;
+                    width: 70vw;
+                    flex-direction: column;
+                    margin: auto;
+                    -webkit-box-shadow: 0px 0px 9px -1px rgb(0 0 0 / 75%);
+                    -moz-box-shadow: 0px 0px 9px -1px rgb(0 0 0 / 75%);
+                    box-shadow: 0px 0px 9px -1px rgb(0 0 0 / 75%);
+                    background: $lightOrange;
+                    margin-bottom: 2em;
+                    margin-top: 2em;
+
+                    p
+                    {
+                        margin: 0;
+                    }
+
+                    .task-text
+                    {
+                        display: flex;
+                        flex-grow: 1;
+                        padding: 10px;
+                        height: 20vh;
+                        overflow-y: auto;
+
+                        &:not(.complete)
+                        {
+                            cursor: move;
+                            transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+                            &:hover
+                            {
+                                box-shadow: 0 0 0 5px #eee;
+                                border-radius: 5px;
+                                margin-right: 10px;
+                                padding: 10px;
+                            }
+
+                            &:active
+                            {
+                                transform: scale(0.85);
+                            }
+                        }
+                        
+
+                        &.complete
+                        {
+                            text-decoration: line-through;
+                            opacity: 0.5;
+                            //border: 1px solid #ccc;
+                        }
+                    }
+
+                    .task-buttons
+                    {
+                        display: flex;
+                        justify-content: space-around;
+
+                        .taskMatButton
+                        {
+                            padding: 0;
+                            min-width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background: $orange;
+
+                            &.editTaskBtn
+                            {
+                                margin-right: 8px;
+                            }
+                        }
+
+                        .taskMatIcon
+                        {
+                            margin-right: 0;
+                            margin-left: 1px;
+                            font-size: 20px;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                .circleAddButtonContainer
+                {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    padding: 1em;
+
+                    .circleAddBtn
+                    {
+                        background: $orange;
+                    }
+
+                    .mat-icon
+                    {
+                        color: #000;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 521px) and (max-width: 767px){
+
+    .mobile-container
+    {
+        height: 100%;
+
+        .mobile-drawer
+        {
+            width: 50%;
+
+            .listsContainer
+            {
+                display: flex;
+                flex-direction: column;
+                height: 95%;
+
+                .top-bar-list
+                {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1em;
+                    background: $pear;
+
+                    .title
+                    {
+                        padding: 0 1em;
+                        font-size: 20px;
+                        margin: 0;
+                    }
+
+                    .logout-icon
+                    {
+                        font-size: 22px;
+                    }
+                }
+
+                .list-menu
+                {
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
+                    margin: 1em;
+                    height: 70vh;
+                    overflow-y: auto;
+
+                    .list-menu-item
+                    {
+                        display: flex;
+                        align-items: center;
+                        padding: 10px 15px;
+                        border-radius: 5px;
+                        //width: 100%;
+                        color: #5f5f5f;
+                        margin-bottom: 5px;
+                        letter-spacing: 0.5px;
+                        text-decoration: none;
+                        cursor: move;
+                        margin-top: 10px;
+
+                        p
+                        {
+                            margin: 0;
+                        }
+
+                        &:hover
+                        {
+                            background-color: $lightOrange;
+                        }
+
+                        &.is-active
+                        {
+                            background-color: #ffbf80;
+                            color: #000;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .addListBtn
+                {
+                    margin: 0 25%;
+                    background: $orange;
+                }
+            }
+        }
+
+        .mobile-drawer-content
+        {
+            .tasks-list-container
+            {
+                .mobile-toolbar
+                {
+                    background: $orange;
+
+                    &.task-present
+                    {
+                        justify-content: space-between;
+                    }
+                    
+                    &.task-not-present
+                    {
+                        justify-content: unset;
+                    }
+
+                    .mobile-app-name
+                    {
+                        margin: 0; 
+                        font-size: 18px;
+                    }
+                }
+
+                .dragDropTasks
+                {
+                    height: 65vh;
+                    overflow-y: auto;
+                }
+
+                .top-bar
+                {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 1em;
+
+                    .title
+                    {
+                        font-size: 20px;
+                    }
+                }
+
+                .empty-state-text
+                {
+                    font-size: 17px;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 1em;
+                }
+
+                .empty-state-task-text
+                {
+                    font-size: 17px;
+                    color: #777;
+                    margin: 2em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .task-elements
+                {
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    //margin-top: 10px;
+                    display: flex;
+                    cursor: move;
+                    height: 10vh;
+                    width: 70vw;
+                    //flex-direction: column;
+                    margin: auto;
+                    -webkit-box-shadow: 0px 0px 9px -1px rgb(0 0 0 / 75%);
+                    -moz-box-shadow:0px 0px 9px -1px rgb(0 0 0 / 75%);
+                    box-shadow: 0px 0px 9px -1px rgb(0 0 0 / 75%);
+                    background: $lightOrange;
+                    margin-bottom: 2em;
+                    margin-top: 2em;
+
+                    p
+                    {
+                        margin: 0;
+                    }
+
+                    .task-text
+                    {
+                        display: flex;
+                        flex-grow: 1;
+                        padding: 10px;
+                        height: 20vh;
+                        overflow-y: auto;
+
+                        &:not(.complete)
+                        {
+                            cursor: move;
+                            transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+                            &:hover
+                            {
+                                box-shadow: 0 0 0 5px #eee;
+                                border-radius: 5px;
+                                margin-right: 10px;
+                                padding: 10px;
+                            }
+
+                            &:active
+                            {
+                                transform: scale(0.85);
+                            }
+                        }
+                        
+
+                        &.complete
+                        {
+                            text-decoration: line-through;
+                            opacity: 0.5;
+                            //border: 1px solid #ccc;
+                        }
+                    }
+
+                    .task-buttons
+                    {
+                        display: flex;
+                        justify-content: space-around;
+
+                        .taskMatButton
+                        {
+                            padding: 0;
+                            min-width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background: $orange;
+
+                            &.editTaskBtn
+                            {
+                                margin-right: 8px;
+                            }
+                        }
+
+                        .taskMatIcon
+                        {
+                            margin-right: 0;
+                            margin-left: 1px;
+                            font-size: 20px;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                .circleAddButtonContainer
+                {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    padding: 1em;
+
+                    .circleAddBtn
+                    {
+                        background: $orange;
+                    }
+
+                    .mat-icon
+                    {
+                        color: #000;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .centered
+    {
+        .boxContent 
+        {
+            width: 85vw;
+            display: flex;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        .task-manager-wrapper
+        {
+            .listsContainer
+            {
+                width: 25vw !important;
+                padding: 30px !important;
+
+                .list-menu
+                {
+                    .list-menu-item
+                    {
+                        p
+                        {
+                            font-size: 13px;
+                        }
+                    }
+                }
+
+                .top-bar-list
+                {
+                    .title
+                    {
+                        font-size: 20px !important;
+                    }
+
+                    .logoutBtn
+                    {
+                        margin-top: 4px;
+
+                        .logoutIcon
+                        {
+                            font-size:22px
+                        }
+                    }
+                }
+
+                .addListBtn
+                {
+                    margin: 0 12% !important;
+		            font-size:13px;
+                }
+            }
+
+            .title
+            {
+                font-size: 20px !important;
+            }
+
+            .tasks-list-container
+            {
+                width: 60vw;
+		        padding: 30px !important;
+
+                .empty-state-text
+                {
+                    font-size: 17px !important;
+                }
+
+                .top-bar
+                {
+                    .modifyListBtn
+                    {
+                        margin-top: 4px !important;
+		
+                        .settingsIcon
+                        {
+                            font-size:22px;
+                        }
+                    }
+                }
+
+                .task-elements
+                {
+                    padding: 10px 15px !important;
+                    align-items: center;
+
+                    .task-text
+                    {
+                        &:not(.complete)
+                        {
+                            width: 30vw;
+		                    font-size: 13px;
+                        }
+                    }
+
+                    .task-buttons
+                    {
+                        width: 8vw;
+                        display: flex;
+
+                        .taskMatButton
+                        {
+                            min-width: 25px !important;
+		                    height: 25px !important;
+                        }
+                        
+                        .taskMatIcon
+                        {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .circleAddButtonContainer
+                {
+                    .circleAddBtn
+                    {
+                        width: 45px;
+		                height: 45px;
+                    }
+
+                    .plusIcon
+                    {
+                        font-size: 18px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    } 
+}
